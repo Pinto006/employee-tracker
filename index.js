@@ -1,20 +1,14 @@
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
+const {  viewEmployees, 
+  viewRoles, 
+  viewDepartments,
+addDepartment,
+addEmployee,
+removeEmployees,
+updateEmployeeRole,
+addRole, } = require('./utils/functions');
 
-// Connect to database
-const db = mysql.createConnection(
-    {
-      host: 'localhost',
-      // MySQL username,
-      user: 'root',
-      // MySQL password
-      password: '',
-      database: 'employeeTracker_db'
-    },
-    console.log(`Connected to the classlist_db database.`)
-  );
-
-  function prompt() {
+function init() {
 
     inquirer
       .prompt({
@@ -35,20 +29,20 @@ const db = mysql.createConnection(
       .then(function ({ task }) {
         switch (task) {
           case "View All Employees":
-            viewEmployee();
+            viewEmployees();
             break;
             
           case "View All Roles":
-            viewEmployeeByDepartment();
+            viewRoles();
             break;
 
           case "View All Departments":
-            viewEmployeeByDepartment();
+            viewDepartments();
             break;
             
           case "Add Department":
-                addEmployee();
-                break;
+              addDepartment();
+              break;
 
           case "Add Employee":
             addEmployee();
@@ -67,8 +61,10 @@ const db = mysql.createConnection(
             break;
   
           case "Quit":
-            connection.end();
+            connection.quit();
             break;
         }
       });
   }
+
+  init();
