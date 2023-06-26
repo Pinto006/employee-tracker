@@ -1,12 +1,12 @@
 const inquirer = require('inquirer');
-const {  viewEmployees, 
-  viewRoles, 
+const { viewEmployees,
+  viewRoles,
   viewDepartments,
-addDepartment,
-addEmployee,
-removeEmployees,
-updateEmployeeRole,
-addRole, } = require('./utils/functions');
+  addDepartment,
+  addEmployee,
+  removeEmployees,
+  updateEmployeeRole,
+  addRole, } = require('./utils/functions');
 
 function init() {
 
@@ -62,6 +62,8 @@ function init() {
   
           case "Quit":
             connection.quit();
+            break;
+          default:
             break;
         }
       });
