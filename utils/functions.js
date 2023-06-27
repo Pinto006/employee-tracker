@@ -17,16 +17,7 @@ const db = mysql.createConnection(
     console.log(`Connected to the classlist_db database.`)
   );
 
-  // async function main() {
-  //   // get the client
-  //   const mysql = require('mysql2/promise');
-  //   // create the connection
-  //   const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'test'});
-  //   // query database
-  //   const [rows, fields] = await connection.execute('SELECT * FROM `table` WHERE `name` = ? AND `age` > ?', ['Morty', 14]);
-  // }
-
-async function viewEmployees () {
+function viewEmployees () {
     const sql = `SELECT *  FROM employee`;
     db.query(sql, (err, result) => {
     if (err) {
@@ -34,9 +25,23 @@ async function viewEmployees () {
       return;
     }
     console.table(result);
+    
     init();
   });
 }; 
+
+// viewEmployees = () => {
+//   const sql = `SELECT *  FROM employee`; 
+
+//   db.promise().query(sql, (err, result) => {
+//     if (err) {
+//       console.log(err)
+//       return;
+//     }
+//     console.table(result);
+//     init();
+//   });
+// };
 
 function viewRoles () {
     const sql = `SELECT *  FROM role`;

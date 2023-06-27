@@ -31,7 +31,7 @@ function init() {
         switch (task) {
           case "View All Employees":
             viewEmployees();
-            init();
+            // init();
             break;
             
           case "View All Roles":
