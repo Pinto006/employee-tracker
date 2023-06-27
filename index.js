@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const { viewEmployees,
-  viewRoles,
+const {   viewEmployees, 
+  viewRoles, 
   viewDepartments,
   addDepartment,
   addEmployee,
@@ -27,6 +27,7 @@ function init() {
           "Quit"]
       })
       .then(function ({ task }) {
+
         switch (task) {
           case "View All Employees":
             viewEmployees();
@@ -35,37 +36,37 @@ function init() {
             
           case "View All Roles":
             viewRoles();
-            init();
+            // init();
             break;
 
           case "View All Departments":
             viewDepartments();
-            init();
+            // init();
             break;
             
           case "Add Department":
               addDepartment();
-              init();
+              // init();
               break;
 
           case "Add Employee":
             addEmployee();
-            init();
+            // init();
             break;
   
           case "Remove Employees":
             removeEmployees();
-            init();
+            // init();
             break;
   
           case "Update Employee Role":
             updateEmployeeRole();
-            init();
+            // init();
             break;
   
           case "Add Role":
             addRole();
-            init();
+            // init();
             break;
   
           case "Quit":

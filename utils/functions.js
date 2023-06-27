@@ -2,6 +2,8 @@ const mysql = require('mysql2');
 require('dotenv').config();
 const cTable = require('console.table');
 const inquirer = require('inquirer');
+const init = require('./index.js');
+
 // Connect to database
 const db = mysql.createConnection(
     {
@@ -15,14 +17,24 @@ const db = mysql.createConnection(
     console.log(`Connected to the classlist_db database.`)
   );
 
-function viewEmployees () {
+  // async function main() {
+  //   // get the client
+  //   const mysql = require('mysql2/promise');
+  //   // create the connection
+  //   const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'test'});
+  //   // query database
+  //   const [rows, fields] = await connection.execute('SELECT * FROM `table` WHERE `name` = ? AND `age` > ?', ['Morty', 14]);
+  // }
+
+async function viewEmployees () {
     const sql = `SELECT *  FROM employee`;
-   db.query(sql, (err, result) => {
+    db.query(sql, (err, result) => {
     if (err) {
         console.log(err)
       return;
     }
     console.table(result);
+    init();
   });
 }; 
 
@@ -53,24 +65,20 @@ function addDepartment () {
     inquirer.prompt([
         {
             type: 'input', 
-            name: 'addDepartment', 
+            name: 'department_name', 
             message: 'Please type in the name of the department you would like to add?',
         }
         ]).then(function (result) {
     const sql = `INSERT INTO department (department_name)
     VALUES (?)`;
-  const params = [body.department_name];
-  
-  db.query(sql, params, (err, result) => {
+  const params = [result.department_name];
+  console.log(params)
+  db.query(sql, params, (err, queryResult) => {
     if (err) {
-      res.status(400).json({ error: err.message });
+      console.log("Error", err);
       return;
     };
-    res.json({
-      message: 'success',
-      data: body
-    });
-    console.table(result);
+    console.table(queryResult);
   });
   viewDepartments();
 })};
