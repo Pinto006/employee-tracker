@@ -1,13 +1,13 @@
 USE employeeTracker_db;
 
-INSERT INTO department (department_name, department_id)
+INSERT INTO department (department_name)
 VALUES 
-('Technology', 1),
-('Finance', 2),
-('Legal', 3),
-('Human Resources', 4),
-('Marketing', 5),
-('Sales', 6);
+('Technology'),
+('Finance'),
+('Legal'),
+('Human Resources'),
+('Marketing'),
+('Sales');
 
 INSERT INTO role (title, salary, department_id)
 VALUES

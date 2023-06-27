@@ -30,34 +30,42 @@ function init() {
         switch (task) {
           case "View All Employees":
             viewEmployees();
+            init();
             break;
             
           case "View All Roles":
             viewRoles();
+            init();
             break;
 
           case "View All Departments":
             viewDepartments();
+            init();
             break;
             
           case "Add Department":
               addDepartment();
+              init();
               break;
 
           case "Add Employee":
             addEmployee();
+            init();
             break;
   
           case "Remove Employees":
             removeEmployees();
+            init();
             break;
   
           case "Update Employee Role":
             updateEmployeeRole();
+            init();
             break;
   
           case "Add Role":
             addRole();
+            init();
             break;
   
           case "Quit":
