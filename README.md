@@ -7,6 +7,7 @@ This is a command line application that allows the user to view an employee log.
 ## Installation
 
 employee-tracker URL:  https://github.com/Pinto006/employee-tracker/tree/main
+video recording URL: https://drive.google.com/file/d/1retUfi4_-rF9NDFcgZ5ukx0nHex-s86d/view
 
 ![Alt text](images/Screenshot.png)
 
