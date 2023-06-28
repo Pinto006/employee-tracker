@@ -8,7 +8,7 @@ const {   viewEmployees,
   updateEmployeeRole,
   addRole, } = require('./utils/functions');
 
-function init() {
+const init = function () {
 
     inquirer
       .prompt({
@@ -30,43 +30,68 @@ function init() {
 
         switch (task) {
           case "View All Employees":
-            viewEmployees();
-            // init();
+            viewEmployees()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+            })
             break;
             
           case "View All Roles":
-            viewRoles();
-            // init();
+            viewRoles()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+            })
+            
             break;
 
           case "View All Departments":
-            viewDepartments();
-            // init();
+            viewDepartments()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+            })      
             break;
             
           case "Add Department":
               addDepartment();
-              // init();
-              break;
+              // .then((queryResults)=>{
+              //   console.table(queryResults)
+              // init()
+              // })
+           break;
 
           case "Add Employee":
-            addEmployee();
-            // init();
+            addEmployee() 
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+          })
             break;
   
           case "Remove Employees":
-            removeEmployees();
-            // init();
+            removeEmployees()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+          })
             break;
   
           case "Update Employee Role":
-            updateEmployeeRole();
-            // init();
+            updateEmployeeRole()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+          })
             break;
   
           case "Add Role":
-            addRole();
-            // init();
+            addRole()
+            .then((queryResults)=>{
+              console.table(queryResults)
+            init()
+          })
             break;
   
           case "Quit":
@@ -78,4 +103,8 @@ function init() {
       });
   }
 
+
+
   init();
+
+  module.exports = init;
