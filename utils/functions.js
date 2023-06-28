@@ -90,22 +90,10 @@ function addEmployee () {
       name: "last_name",
       message: "what is the employee's last name?"
     },
-    {
-      type: "list",
-      name: "role_id",
-      choices: roleChoice,
-      message: "what is the employee's role?"
-    },
-    {
-      type: "list",
-      name: "manager_id",
-      choices: employeeChoice,
-      message: "who is the employee's manager? (could be null)"
-    },
+
     ]).then(function (result) {
-const sql = `INSERT INTO department (department_name)
-VALUES (?)`;
-const params = [result.department_name];
+const sql = `INSERT INTO employee (first_name, last_name) VALUES (?)`;
+const params = [result.first_name, result.last_name];
 console.log(params)
 db.query(sql, params, (err, queryResult) => {
 if (err) {
@@ -131,7 +119,7 @@ function addRole () {
     {
         type: 'input', 
         name: 'title', 
-        message: 'Please type in the name of the title you would like to add',
+        message: 'Please type in the name of the title you would like to add.',
     }, 
     {
       type: "input",
@@ -139,15 +127,15 @@ function addRole () {
       message: "what is the salary of the new role?"
     },
     {
-      type: "list",
-      name: "department",
-      choices: departments,
-      message: "which department is this role in?"
+      type: "input",
+      name: "department_id",
+      message: "which department id is this role in?"
     },
+    
     ]).then(function (result) {
-const sql = `INSERT INTO department (title)
+const sql = `INSERT INTO role (title, salary, department_id)
 VALUES (?)`;
-const params = [result.title];
+const params = [result.title, result.salary, result.department_id];
 console.log(params)
 db.query(sql, params, (err, queryResult) => {
 if (err) {

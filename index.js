@@ -63,11 +63,11 @@ const init = function () {
            break;
 
           case "Add Employee":
-            addEmployee() 
-            .then((queryResults)=>{
-              console.table(queryResults)
-            init()
-          })
+            addEmployee(); 
+            // .then((queryResults)=>{
+            //   console.table(queryResults)
+            // init()
+          // })
             break;
   
           case "Remove Employees":
@@ -87,11 +87,11 @@ const init = function () {
             break;
   
           case "Add Role":
-            addRole()
-            .then((queryResults)=>{
-              console.table(queryResults)
-            init()
-          })
+            addRole();
+            // .then((queryResults)=>{
+            //   console.table(queryResults)
+            // init()
+          // })
             break;
   
           case "Quit":
