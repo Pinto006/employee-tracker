@@ -114,7 +114,7 @@ if (err) {
 };
 console.table(queryResult);
 });
-viewDepartments();
+viewEmployees();
 })};
 
 
